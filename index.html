@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Sai Enterprises – Security & Safety Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0f1e;
+    --deep: #0d1530;
+    --accent: #e8a020;
+    --gold: #f5c842;
+    --light: #f0f4ff;
+    --muted: #8896b0;
+    --card-bg: #111827;
+    --border: rgba(232,160,32,0.2);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--light);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 5%;
+    background: rgba(10,15,30,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { display: flex; align-items: center; gap: 0.6rem; }
+  .logo-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; font-weight: 900; color: var(--navy);
+  }
+  .logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--light); line-height: 1.2; }
+  .logo-sub { font-size: 0.65rem; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color .2s; }
+  nav ul a:hover { color: var(--accent); }
+  .nav-cta {
+    background: var(--accent); color: var(--navy); padding: 0.5rem 1.2rem;
+    border-radius: 6px; font-weight: 600; font-size: 0.85rem; text-decoration: none;
+    transition: background .2s, transform .15s;
+  }
+  .nav-cta:hover { background: var(--gold); transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 8rem 5% 4rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 70% 50%, rgba(232,160,32,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(100,120,255,0.06) 0%, transparent 60%),
+      linear-gradient(160deg, #0a0f1e 0%, #0d1530 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; z-index: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--accent) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 680px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(232,160,32,0.12); border: 1px solid var(--border);
+    padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.8rem;
+    color: var(--accent); letter-spacing: 1.5px; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 1.5s infinite; }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 900; line-height: 1.1;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub {
+    margin-top: 1.2rem; font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+    max-width: 500px; animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-btns {
+    margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--navy); padding: 0.9rem 2rem;
+    border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 1rem;
+    transition: all .2s; box-shadow: 0 4px 20px rgba(232,160,32,0.3);
+  }
+  .btn-primary:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,160,32,0.4); }
+  .btn-outline {
+    border: 1px solid var(--border); color: var(--light); padding: 0.9rem 2rem;
+    border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 1rem;
+    transition: all .2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    margin-top: 3.5rem; display: flex; gap: 3rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 900; color: var(--accent); }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* floating camera illustration */
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    z-index: 1; opacity: 0.15;
+    animation: float 4s ease-in-out infinite;
+  }
+  .hero-visual svg { width: 280px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5%; }
+  .section-label {
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 800; line-height: 1.2;
+  }
+  .section-desc { color: var(--muted); line-height: 1.7; max-width: 520px; margin-top: 0.8rem; font-size: 1rem; }
+
+  /* ── SERVICES ── */
+  #services { background: var(--deep); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--card-bg); border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px; padding: 2rem;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    transform: scaleX(0); transform-origin: left; transition: transform .3s;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); border-color: var(--border); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.7rem; }
+  .service-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-visual {
+    background: var(--card-bg); border-radius: 20px; padding: 3rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-direction: column; gap: 1.5rem;
+  }
+  .about-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .about-dot {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: rgba(232,160,32,0.15); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    font-size: 1rem;
+  }
+  .about-item-title { font-weight: 600; font-size: 0.95rem; }
+  .about-item-desc { color: var(--muted); font-size: 0.85rem; margin-top: 0.2rem; }
+
+  /* ── GALLERY / FEATURES ── */
+  #features { background: var(--deep); }
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem;
+  }
+  .feature-tile {
+    background: var(--card-bg); border-radius: 12px; padding: 1.8rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: border-color .2s;
+  }
+  .feature-tile:hover { border-color: var(--border); }
+  .feature-tile h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .feature-tile p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+  .feature-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 900; color: rgba(232,160,32,0.15); line-height: 1; margin-bottom: 0.7rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  .contact-wrapper {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3rem; align-items: start;
+  }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: rgba(232,160,32,0.12); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;
+  }
+  .contact-item-label { font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; }
+  .contact-item-val { font-size: 1rem; font-weight: 500; margin-top: 0.2rem; }
+  .contact-item-val a { color: var(--light); text-decoration: none; }
+  .contact-item-val a:hover { color: var(--accent); }
+
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  input, textarea, select {
+    background: var(--card-bg); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px; padding: 0.85rem 1rem; color: var(--light);
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; width: 100%;
+    transition: border-color .2s;
+  }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); }
+  input::placeholder, textarea::placeholder { color: var(--muted); }
+  textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    background: var(--accent); color: var(--navy); border: none; border-radius: 10px;
+    padding: 1rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+    transition: all .2s; font-family: 'DM Sans', sans-serif;
+  }
+  .form-submit:hover { background: var(--gold); transform: translateY(-2px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060910; padding: 2.5rem 5%;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: gap;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  footer p { color: var(--muted); font-size: 0.85rem; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color .2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── AUTHORIZED DEALER STRIP ── */
+  .dealer-strip {
+    background: linear-gradient(90deg, #0d1530 0%, #0a0f1e 50%, #0d1530 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 5%;
+    text-align: center;
+  }
+  .dealer-strip .section-label { margin-bottom: 1.5rem; }
+  .dealer-strip h2 { margin-bottom: 0.5rem; }
+  .dealer-strip .section-desc { margin: 0 auto 2.5rem; text-align: center; }
+  .dealer-cards {
+    display: flex; justify-content: center; align-items: stretch;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .dealer-card {
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    min-width: 260px;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    position: relative; overflow: hidden;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .dealer-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(232,160,32,0.06) 0%, transparent 60%);
+  }
+  .dealer-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(232,160,32,0.15); }
+  .dealer-logo-box {
+    width: 80px; height: 80px; border-radius: 16px;
+    background: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; font-weight: 900; letter-spacing: -1px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .dahua-box { background: #003087; color: white; }
+  .cpplus-box { background: #e8002d; color: white; }
+  .dealer-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; }
+  .dealer-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: rgba(232,160,32,0.15); border: 1px solid var(--accent);
+    color: var(--accent); border-radius: 999px;
+    padding: 0.35rem 1rem; font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+  }
+  .dealer-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.6; max-width: 220px; text-align: center; }
+
+  /* whatsapp float */
+  .wa-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    text-decoration: none; font-size: 1.8rem;
+    animation: popIn 0.5s 1s ease both, waPulse 2.5s 2s ease-in-out infinite;
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.1); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes float { 0%,100%{ transform:translateY(-50%) translateX(0); } 50%{ transform:translateY(-50%) translateX(-12px); } }
+  @keyframes pulse { 0%,100%{ opacity:1; } 50%{ opacity:0.4; } }
+  @keyframes popIn { from{ opacity:0; transform:scale(0.5); } to{ opacity:1; transform:scale(1); } }
+  @keyframes waPulse { 0%,100%{ box-shadow:0 4px 20px rgba(37,211,102,0.4); } 50%{ box-shadow:0 4px 35px rgba(37,211,102,0.7); } }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    #about { grid-template-columns: 1fr; gap:3rem; }
+    .contact-wrapper { grid-template-columns: 1fr; gap:3rem; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    nav ul { display:none; }
+    .hero-visual { display:none; }
+  }
+  @media(max-width:600px){
+    .features-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction:column; gap:1rem; text-align:center; }
+    .hero-stats { gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">
+    <div class="logo-icon">O</div>
+    <div>
+      <div class="logo-text">Om Sai Enterprises</div>
+      <div class="logo-sub">Security & Safety Solutions</div>
+    </div>
+  </div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#solar">Solar</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('callModal').style.display='flex'">📞 Call Now</button>
+</nav>
+
+<!-- CALL MODAL -->
+<div id="callModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.7); backdrop-filter:blur(8px); align-items:center; justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:#111827; border:1px solid rgba(232,160,32,0.3); border-radius:24px; padding:2.5rem 2rem; max-width:360px; width:90%; text-align:center; animation:fadeUp 0.3s ease both;">
+    <div style="font-size:2.5rem; margin-bottom:0.5rem;">📞</div>
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.4rem; color:#f0f4ff;">Call Us Now</h3>
+    <p style="color:#8896b0; font-size:0.85rem; margin-bottom:1.8rem;">Om Sai Enterprises — Bhavesh Arora</p>
+
+    <a href="tel:9131725891" style="display:flex; align-items:center; justify-content:space-between; background:rgba(232,160,32,0.1); border:1px solid rgba(232,160,32,0.3); border-radius:14px; padding:1rem 1.2rem; text-decoration:none; margin-bottom:0.8rem; transition:all .2s;" onmouseover="this.style.background='rgba(232,160,32,0.2)'" onmouseout="this.style.background='rgba(232,160,32,0.1)'">
+      <div style="text-align:left;">
+        <div style="font-size:0.7rem; color:#e8a020; text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Primary Number</div>
+        <div style="font-size:1.15rem; font-weight:700; color:#f0f4ff;">+91 91317 25891</div>
+      </div>
+      <div style="background:#e8a020; color:#0a0f1e; border-radius:10px; padding:0.5rem 1rem; font-weight:700; font-size:0.85rem;">📲 Call</div>
+    </a>
+
+    <a href="tel:9644218402" style="display:flex; align-items:center; justify-content:space-between; background:rgba(232,160,32,0.1); border:1px solid rgba(232,160,32,0.3); border-radius:14px; padding:1rem 1.2rem; text-decoration:none; margin-bottom:1.5rem; transition:all .2s;" onmouseover="this.style.background='rgba(232,160,32,0.2)'" onmouseout="this.style.background='rgba(232,160,32,0.1)'">
+      <div style="text-align:left;">
+        <div style="font-size:0.7rem; color:#e8a020; text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Alternate Number</div>
+        <div style="font-size:1.15rem; font-weight:700; color:#f0f4ff;">+91 96442 18402</div>
+      </div>
+      <div style="background:#e8a020; color:#0a0f1e; border-radius:10px; padding:0.5rem 1rem; font-weight:700; font-size:0.85rem;">📲 Call</div>
+    </a>
+
+    <a href="https://wa.me/919131725891" target="_blank" style="display:flex; align-items:center; justify-content:center; gap:0.5rem; background:#25D366; color:#fff; border-radius:14px; padding:0.9rem; text-decoration:none; font-weight:700; font-size:0.95rem; margin-bottom:1rem;">
+      💬 WhatsApp karo
+    </a>
+
+    <button onclick="document.getElementById('callModal').style.display='none'" style="background:none; border:none; color:#8896b0; font-size:0.85rem; cursor:pointer; font-family:'DM Sans',sans-serif;">✕ Band Karein</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span></span> Trusted Security Partner</div>
+    <h1>Protect What<br>Matters <em>Most</em></h1>
+    <p class="hero-sub">
+      Professional CCTV installation, all-brand camera sales, fire extinguisher supply, and solar panel installation — all under one roof.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#services" class="btn-outline">Our Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Installations Done</div>
+      </div>
+      <div>
+        <div class="stat-num">All Brands</div>
+        <div class="stat-label">Camera Available</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Support</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="#e8a020" stroke-width="2" stroke-dasharray="8 6"/>
+      <rect x="55" y="75" width="90" height="55" rx="12" fill="#e8a020"/>
+      <circle cx="100" cy="102" r="18" fill="#0a0f1e"/>
+      <circle cx="100" cy="102" r="10" fill="#e8a020" opacity=".5"/>
+      <rect x="120" y="88" width="30" height="10" rx="4" fill="#0a0f1e"/>
+      <rect x="70" y="130" width="60" height="8" rx="4" fill="#e8a020" opacity=".4"/>
+    </svg>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-label">What We Offer</div>
+  <h2>Our Services</h2>
+  <p class="section-desc">End-to-end security solutions and more — tailored for homes, offices, factories and events.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">📹</div>
+      <h3>CCTV Installation</h3>
+      <p>Professional on-site CCTV camera installation for homes, shops, offices, and industries. Wired & wireless options available.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🛒</div>
+      <h3>Camera Sales</h3>
+      <p>Authorized dealer for <strong style="color:var(--accent)">Dahua</strong> & <strong style="color:var(--accent)">CP Plus</strong>. Genuine products with full manufacturer warranty. Dome, bullet, PTZ, and IP cameras in stock.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔥</div>
+      <h3>Fire Extinguishers</h3>
+      <p>Supply, installation, and refilling of fire extinguishers for commercial and residential premises. ISI certified products.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">☀️</div>
+      <h3>Solar Panel Installation</h3>
+      <p>Ghar aur factory ke liye solar panel installation. Bijli bill 90% tak kam karo. 25 saal warranty ke saath genuine panels.</p>
+    </div>
+    <div class="service-card">
+      <h3>AMC & Maintenance</h3>
+      <p>Annual maintenance contracts for CCTV systems — ensuring your surveillance setup stays in top working condition all year round.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏭</div>
+      <h3>Industrial Solutions</h3>
+      <p>Large-scale surveillance and fire safety setups for factories, warehouses, and commercial complexes. Bulk supply available.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORIZED DEALER STRIP -->
+<section class="dealer-strip">
+  <div class="section-label">Official Partnership</div>
+  <h2>Authorized Dealer</h2>
+  <p class="section-desc">We are proud official authorized dealers for two of India's most trusted security brands.</p>
+  <div class="dealer-cards">
+
+    <div class="dealer-card">
+      <div class="dealer-logo-box dahua-box">DAHUA</div>
+      <div class="dealer-brand">Dahua Technology</div>
+      <div class="dealer-badge">✅ Authorized Dealer</div>
+      <p class="dealer-desc">Official dealer for Dahua CCTV cameras, NVRs, DVRs, and complete surveillance systems. 100% genuine products with manufacturer warranty.</p>
+    </div>
+
+    <div class="dealer-card">
+      <div class="dealer-logo-box cpplus-box">CP+</div>
+      <div class="dealer-brand">CP Plus</div>
+      <div class="dealer-badge">✅ Authorized Dealer</div>
+      <p class="dealer-desc">Official dealer for CP Plus cameras and security equipment — India's #1 surveillance brand. Full range available with genuine warranty.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div>
+    <div class="section-label">Who We Are</div>
+    <h2>About<br>Om Sai Enterprises</h2>
+    <p class="section-desc" style="margin-bottom:2rem;">
+      Founded by Bhavesh Arora, Om Sai Enterprises has grown into a trusted name in security surveillance, fire safety, and event photography. We bring together expertise, quality products, and dedicated service.
+    </p>
+    <a href="#contact" class="btn-primary">Get in Touch</a>
+  </div>
+  <div class="about-visual">
+    <div class="about-item">
+      <div class="about-dot">✅</div>
+      <div>
+        <div class="about-item-title">Certified & Experienced</div>
+        <div class="about-item-desc">Years of hands-on experience in CCTV installation and fire safety across Madhya Pradesh.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-dot">🏷️</div>
+      <div>
+        <div class="about-item-title">All Brand Support</div>
+        <div class="about-item-desc">We source and service cameras from all leading national and international brands.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-dot">⚡</div>
+      <div>
+        <div class="about-item-title">Fast Installation</div>
+        <div class="about-item-desc">Quick turnaround for installation projects — minimal disruption to your business or home.</div>
+      </div>
+    </div>
+    <div class="about-item">
+      <div class="about-dot">🤝</div>
+      <div>
+        <div class="about-item-title">After-Sales Support</div>
+        <div class="about-item-desc">We stand by our work with dedicated post-installation support and maintenance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="features">
+  <div class="section-label">Why Choose Us</div>
+  <h2>Our Strengths</h2>
+  <p class="section-desc">Here's what sets Om Sai Enterprises apart from the rest.</p>
+  <div class="features-grid">
+    <div class="feature-tile">
+      <div class="feature-num">01</div>
+      <h4>One-Stop Shop</h4>
+      <p>CCTV, fire safety, and photography — all from a single trusted vendor. No need to run around.</p>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-num">02</div>
+      <h4>Competitive Pricing</h4>
+      <p>Best market rates with no hidden charges. Transparent quotes upfront.</p>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-num">03</div>
+      <h4>Expert Team</h4>
+      <p>Trained technicians with deep knowledge of all major brands and systems.</p>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-num">04</div>
+      <h4>Timely Delivery</h4>
+      <p>We respect your time. All installations and orders delivered on schedule.</p>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-num">05</div>
+      <h4>Custom Solutions</h4>
+      <p>Every project is tailored to your specific space, budget, and security requirements.</p>
+    </div>
+    <div class="feature-tile">
+      <div class="feature-num">06</div>
+      <h4>Local Presence</h4>
+      <p>Based locally — quick response times and personal service you can count on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMERA PRODUCTS GALLERY -->
+<section id="products" style="background:var(--navy); padding:6rem 5%;">
+  <div class="section-label">Our Products</div>
+  <h2>Camera Range</h2>
+  <p class="section-desc">Genuine Dahua & CP Plus cameras — all types available at best prices with full warranty.</p>
+
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; margin-top:2.5rem;">
+
+    <!-- Dahua Dome -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="75" rx="38" ry="12" fill="#0a0f1e" opacity=".4"/>
+          <rect x="50" y="68" width="20" height="10" rx="3" fill="#2a3a5c"/>
+          <ellipse cx="60" cy="60" rx="36" ry="20" fill="#2a3a5c"/>
+          <ellipse cx="60" cy="55" rx="36" ry="20" fill="#334a72"/>
+          <ellipse cx="60" cy="55" rx="30" ry="16" fill="#1e2d4a"/>
+          <circle cx="60" cy="55" r="14" fill="#243352"/>
+          <circle cx="60" cy="55" r="9" fill="#0d1530"/>
+          <circle cx="60" cy="55" r="5" fill="#1a2540"/>
+          <circle cx="58" cy="53" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <ellipse cx="60" cy="55" rx="30" ry="16" fill="none" stroke="#e8a020" stroke-width="0.8" opacity=".4"/>
+        </svg>
+        <div style="position:absolute;top:10px;left:10px;background:#003087;color:white;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:1px;">DAHUA</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">Dome Camera</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">2MP / 4MP / 8MP • Indoor & Outdoor</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+    <!-- Dahua Bullet -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="95" rx="30" ry="8" fill="#0a0f1e" opacity=".4"/>
+          <!-- body -->
+          <rect x="25" y="45" width="60" height="32" rx="10" fill="#334a72"/>
+          <rect x="25" y="45" width="60" height="28" rx="10" fill="#2a3a5c"/>
+          <!-- lens front -->
+          <circle cx="82" cy="59" r="12" fill="#1a2235"/>
+          <circle cx="82" cy="59" r="8" fill="#0d1530"/>
+          <circle cx="82" cy="59" r="4" fill="#1a2540"/>
+          <circle cx="80" cy="57" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <!-- ring -->
+          <circle cx="82" cy="59" r="11" fill="none" stroke="#e8a020" stroke-width="1" opacity=".5"/>
+          <!-- mount -->
+          <rect x="42" y="73" width="22" height="18" rx="4" fill="#1e2d4a"/>
+          <rect x="47" y="88" width="12" height="6" rx="3" fill="#2a3a5c"/>
+          <!-- IR dots -->
+          <circle cx="35" cy="52" r="2" fill="#ff4444" opacity=".7"/>
+          <circle cx="35" cy="66" r="2" fill="#ff4444" opacity=".7"/>
+          <circle cx="42" cy="48" r="2" fill="#ff4444" opacity=".5"/>
+          <circle cx="42" cy="70" r="2" fill="#ff4444" opacity=".5"/>
+        </svg>
+        <div style="position:absolute;top:10px;left:10px;background:#003087;color:white;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:1px;">DAHUA</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">Bullet Camera</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">2MP / 4MP • Long Range IR Night Vision</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+    <!-- CP Plus Dome -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="75" rx="38" ry="12" fill="#0a0f1e" opacity=".4"/>
+          <rect x="50" y="68" width="20" height="10" rx="3" fill="#3a1a1a"/>
+          <ellipse cx="60" cy="60" rx="36" ry="20" fill="#3a1a1a"/>
+          <ellipse cx="60" cy="55" rx="36" ry="20" fill="#4a2020"/>
+          <ellipse cx="60" cy="55" rx="30" ry="16" fill="#2e1515"/>
+          <circle cx="60" cy="55" r="14" fill="#3a1a1a"/>
+          <circle cx="60" cy="55" r="9" fill="#0d1530"/>
+          <circle cx="60" cy="55" r="5" fill="#1a1020"/>
+          <circle cx="58" cy="53" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <ellipse cx="60" cy="55" rx="30" ry="16" fill="none" stroke="#e8002d" stroke-width="0.8" opacity=".5"/>
+        </svg>
+        <div style="position:absolute;top:10px;left:10px;background:#e8002d;color:white;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:1px;">CP PLUS</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">CP Plus Dome</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">Full HD • Color Night Vision</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+    <!-- CP Plus Bullet -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="95" rx="30" ry="8" fill="#0a0f1e" opacity=".4"/>
+          <rect x="25" y="45" width="60" height="32" rx="10" fill="#4a2020"/>
+          <rect x="25" y="45" width="60" height="28" rx="10" fill="#3a1818"/>
+          <circle cx="82" cy="59" r="12" fill="#1a0a0a"/>
+          <circle cx="82" cy="59" r="8" fill="#0d0808"/>
+          <circle cx="82" cy="59" r="4" fill="#1a1020"/>
+          <circle cx="80" cy="57" r="1.5" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="82" cy="59" r="11" fill="none" stroke="#e8002d" stroke-width="1" opacity=".5"/>
+          <rect x="42" y="73" width="22" height="18" rx="4" fill="#2e1515"/>
+          <rect x="47" y="88" width="12" height="6" rx="3" fill="#3a1a1a"/>
+          <circle cx="35" cy="52" r="2" fill="#ff4444" opacity=".7"/>
+          <circle cx="35" cy="66" r="2" fill="#ff4444" opacity=".7"/>
+          <circle cx="42" cy="48" r="2" fill="#ff4444" opacity=".5"/>
+          <circle cx="42" cy="70" r="2" fill="#ff4444" opacity=".5"/>
+        </svg>
+        <div style="position:absolute;top:10px;left:10px;background:#e8002d;color:white;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:1px;">CP PLUS</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">CP Plus Bullet</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">5MP Ultra HD • Outdoor Weatherproof</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+    <!-- PTZ Camera -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="95" rx="20" ry="6" fill="#0a0f1e" opacity=".4"/>
+          <rect x="53" y="82" width="14" height="14" rx="3" fill="#2a3a5c"/>
+          <rect x="56" y="78" width="8" height="6" rx="2" fill="#334a72"/>
+          <!-- dome body -->
+          <ellipse cx="60" cy="60" rx="28" ry="28" fill="#2a3a5c"/>
+          <ellipse cx="60" cy="60" rx="28" ry="28" fill="none" stroke="#e8a020" stroke-width="1" opacity=".3"/>
+          <!-- camera inside -->
+          <ellipse cx="60" cy="65" rx="20" ry="12" fill="#1a2540"/>
+          <circle cx="60" cy="63" r="10" fill="#0d1530"/>
+          <circle cx="60" cy="63" r="6" fill="#1a2540"/>
+          <circle cx="60" cy="63" r="3" fill="#0a0f1e"/>
+          <circle cx="58.5" cy="61.5" r="1" fill="rgba(255,255,255,0.4)"/>
+          <!-- rotation arrows -->
+          <path d="M38 45 Q60 30 82 45" fill="none" stroke="#e8a020" stroke-width="1.5" stroke-dasharray="3,2" opacity=".5"/>
+          <polygon points="82,42 85,48 79,47" fill="#e8a020" opacity=".6"/>
+        </svg>
+        <div style="position:absolute;top:10px;left:10px;background:#003087;color:white;font-size:0.65rem;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:1px;">DAHUA</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">PTZ Speed Dome</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">360° Pan-Tilt-Zoom • Auto Tracking</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+    <!-- WiFi Camera -->
+    <div class="prod-card" style="background:var(--card-bg); border:1px solid rgba(255,255,255,0.07); border-radius:16px; overflow:hidden; transition:transform .3s, box-shadow .3s;">
+      <div style="background:#1a2235; height:180px; display:flex; align-items:center; justify-content:center; padding:1.5rem; position:relative;">
+        <svg viewBox="0 0 120 120" width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="60" cy="95" rx="22" ry="7" fill="#0a0f1e" opacity=".4"/>
+          <!-- body cylinder -->
+          <rect x="40" y="42" width="40" height="48" rx="12" fill="#334a72"/>
+          <rect x="40" y="42" width="40" height="44" rx="12" fill="#2a3a5c"/>
+          <!-- lens -->
+          <circle cx="60" cy="56" r="14" fill="#1a2235"/>
+          <circle cx="60" cy="56" r="10" fill="#0d1530"/>
+          <circle cx="60" cy="56" r="6" fill="#1a2540"/>
+          <circle cx="60" cy="56" r="3" fill="#0a0f1e"/>
+          <circle cx="58" cy="54" r="1.2" fill="rgba(255,255,255,0.35)"/>
+          <circle cx="60" cy="56" r="13" fill="none" stroke="#e8a020" stroke-width="1" opacity=".4"/>
+          <!-- wifi arcs -->
+          <path d="M50 30 Q60 22 70 30" fill="none" stroke="#e8a020" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+          <path d="M54 35 Q60 30 66 35" fill="none" stroke="#e8a020" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+          <circle cx="60" cy="40" r="2" fill="#e8a020" opacity=".9"/>
+          <!-- base -->
+          <rect x="50" y="86" width="20" height="8" rx="4" fill="#1e2d4a"/>
+        </svg>
+        <div style="position:absolute;top:10px;right:10px;background:#1a3a1a;color:#4ade80;font-size:0.6rem;font-weight:700;padding:3px 7px;border-radius:4px;letter-spacing:1px;">WiFi</div>
+      </div>
+      <div style="padding:1.2rem;">
+        <div style="font-weight:600;font-size:0.95rem;">WiFi IP Camera</div>
+        <div style="color:var(--muted);font-size:0.82rem;margin-top:0.3rem;">Wireless • Mobile App • 2-Way Audio</div>
+        <div style="color:var(--accent);font-size:0.8rem;margin-top:0.6rem;font-weight:600;">✅ Genuine • Warranty Included</div>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="#contact" class="btn-primary">📞 Enquire About Pricing</a>
+  </div>
+</section>
+
+<!-- SOLAR PANEL SECTION -->
+<section id="solar" style="background:linear-gradient(135deg,#0d1a0a 0%,#0a1505 50%,#0d1a0a 100%); padding:6rem 5%; border-top:1px solid rgba(74,222,128,0.15); border-bottom:1px solid rgba(74,222,128,0.15);">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center;">
+    <div>
+      <div class="section-label" style="color:#4ade80;">Green Energy Solutions</div>
+      <h2 style="margin-bottom:1rem;">Solar Panel<br><em style="color:#4ade80; font-style:normal;">Installation</em></h2>
+      <p style="color:var(--muted); line-height:1.8; margin-bottom:1.5rem;">
+        Bijli ke badhte bills se pareshan hain? Om Sai Enterprises ab solar panel installation bhi provide karta hai — ghar, dukaan, factory sab ke liye. Ek baar lagao, saalon tak free bijli paao! ☀️
+      </p>
+      <div style="display:flex; flex-direction:column; gap:1rem; margin-bottom:2rem;">
+        <div style="display:flex; align-items:center; gap:0.8rem; background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.15); border-radius:12px; padding:0.9rem 1.2rem;">
+          <span style="font-size:1.5rem;">🏠</span>
+          <div>
+            <div style="font-weight:600; font-size:0.9rem;">Residential Solar</div>
+            <div style="color:var(--muted); font-size:0.8rem;">Ghar ke liye 1kW – 10kW systems</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.8rem; background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.15); border-radius:12px; padding:0.9rem 1.2rem;">
+          <span style="font-size:1.5rem;">🏭</span>
+          <div>
+            <div style="font-weight:600; font-size:0.9rem;">Commercial Solar</div>
+            <div style="color:var(--muted); font-size:0.8rem;">Factory / Shop ke liye high-capacity systems</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.8rem; background:rgba(74,222,128,0.06); border:1px solid rgba(74,222,128,0.15); border-radius:12px; padding:0.9rem 1.2rem;">
+          <span style="font-size:1.5rem;">🔋</span>
+          <div>
+            <div style="font-weight:600; font-size:0.9rem;">Battery Backup Systems</div>
+            <div style="color:var(--muted); font-size:0.8rem;">Load shedding mein bhi power bani rahe</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="background:#4ade80; color:#0a1505;">☀️ Solar Quote Lein</a>
+    </div>
+
+    <!-- Solar Panel SVG Illustration -->
+    <div style="display:flex; justify-content:center; align-items:center;">
+      <svg viewBox="0 0 320 280" width="100%" max-width="320" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 10px 40px rgba(74,222,128,0.15));">
+        <!-- Sun -->
+        <circle cx="260" cy="40" r="22" fill="#fbbf24" opacity=".9"/>
+        <line x1="260" y1="10" x2="260" y2="2" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="260" y1="70" x2="260" y2="78" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="230" y1="40" x2="222" y2="40" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="290" y1="40" x2="298" y2="40" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="239" y1="19" x2="233" y2="13" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="281" y1="61" x2="287" y2="67" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="281" y1="19" x2="287" y2="13" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="239" y1="61" x2="233" y2="67" stroke="#fbbf24" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- Solar rays to panel -->
+        <line x1="248" y1="55" x2="200" y2="100" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3" opacity=".4"/>
+        <line x1="240" y1="52" x2="160" y2="90" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/>
+
+        <!-- Roof -->
+        <polygon points="20,160 160,90 300,160" fill="#1a2a1a"/>
+        <polygon points="20,160 160,95 300,160" fill="#243324"/>
+
+        <!-- Solar Panel on roof -->
+        <g transform="rotate(-18, 160, 120)">
+          <!-- Panel frame -->
+          <rect x="95" y="85" width="130" height="80" rx="4" fill="#1a3a2a" stroke="#4ade80" stroke-width="1.5"/>
+          <!-- Panel grid -->
+          <line x1="115" y1="85" x2="115" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="135" y1="85" x2="135" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="155" y1="85" x2="155" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="175" y1="85" x2="175" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="195" y1="85" x2="195" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="215" y1="85" x2="215" y2="165" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="95" y1="112" x2="225" y2="112" stroke="#2d5a3d" stroke-width="1"/>
+          <line x1="95" y1="139" x2="225" y2="139" stroke="#2d5a3d" stroke-width="1"/>
+          <!-- Cell sheen -->
+          <rect x="97" y="87" width="126" height="24" rx="2" fill="#1e4a2e" opacity=".7"/>
+          <rect x="97" y="114" width="126" height="24" rx="2" fill="#1e4a2e" opacity=".6"/>
+          <rect x="97" y="141" width="126" height="22" rx="2" fill="#1e4a2e" opacity=".7"/>
+          <rect x="97" y="87" width="126" height="76" rx="2" fill="url(#sheen)" opacity=".15"/>
+        </g>
+
+        <!-- House walls -->
+        <rect x="60" y="160" width="200" height="100" fill="#1a2a1a"/>
+        <rect x="60" y="160" width="200" height="96" fill="#243324"/>
+
+        <!-- Door -->
+        <rect x="140" y="210" width="40" height="50" rx="4" fill="#1a1a0a"/>
+        <circle cx="174" cy="236" r="3" fill="#4ade80" opacity=".7"/>
+
+        <!-- Windows -->
+        <rect x="75" y="180" width="40" height="30" rx="4" fill="#0d2010"/>
+        <line x1="95" y1="180" x2="95" y2="210" stroke="#2d5a3d" stroke-width="1"/>
+        <line x1="75" y1="195" x2="115" y2="195" stroke="#2d5a3d" stroke-width="1"/>
+
+        <rect x="205" y="180" width="40" height="30" rx="4" fill="#0d2010"/>
+        <line x1="225" y1="180" x2="225" y2="210" stroke="#2d5a3d" stroke-width="1"/>
+        <line x1="205" y1="195" x2="245" y2="195" stroke="#2d5a3d" stroke-width="1"/>
+
+        <!-- Ground -->
+        <rect x="0" y="258" width="320" height="22" rx="4" fill="#0d1a0a"/>
+
+        <!-- Energy flow arrow -->
+        <path d="M225,135 Q280,170 270,215" fill="none" stroke="#4ade80" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrow)" opacity=".7"/>
+        <defs>
+          <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+            <polygon points="0,0 6,3 0,6" fill="#4ade80" opacity=".7"/>
+          </marker>
+        </defs>
+
+        <!-- kW badge -->
+        <rect x="255" y="200" width="52" height="26" rx="8" fill="rgba(74,222,128,0.15)" stroke="#4ade80" stroke-width="1"/>
+        <text x="281" y="218" text-anchor="middle" fill="#4ade80" font-size="11" font-weight="700" font-family="DM Sans,sans-serif">FREE ⚡</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Solar Benefits row -->
+  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin-top:3.5rem;">
+    <div style="text-align:center; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; padding:1.5rem;">
+      <div style="font-size:2rem; font-family:'Playfair Display',serif; font-weight:900; color:#4ade80;">25+</div>
+      <div style="color:var(--muted); font-size:0.82rem; margin-top:0.3rem;">Saal ki Warranty</div>
+    </div>
+    <div style="text-align:center; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; padding:1.5rem;">
+      <div style="font-size:2rem; font-family:'Playfair Display',serif; font-weight:900; color:#4ade80;">90%</div>
+      <div style="color:var(--muted); font-size:0.82rem; margin-top:0.3rem;">Bijli Bill Kam</div>
+    </div>
+    <div style="text-align:center; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; padding:1.5rem;">
+      <div style="font-size:2rem; font-family:'Playfair Display',serif; font-weight:900; color:#4ade80;">0 ₹</div>
+      <div style="color:var(--muted); font-size:0.82rem; margin-top:0.3rem;">Maintenance Cost</div>
+    </div>
+    <div style="text-align:center; background:rgba(74,222,128,0.05); border:1px solid rgba(74,222,128,0.12); border-radius:14px; padding:1.5rem;">
+      <div style="font-size:2rem; font-family:'Playfair Display',serif; font-weight:900; color:#4ade80;">EMI</div>
+      <div style="color:var(--muted); font-size:0.82rem; margin-top:0.3rem;">Aasaan Kishtein</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Reach Out</div>
+  <h2>Contact Us</h2>
+  <p class="section-desc">Have a requirement? Drop us a message or call directly. We respond fast.</p>
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">👤</div>
+        <div>
+          <div class="contact-item-label">Owner</div>
+          <div class="contact-item-val">Bhavesh Arora</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-val">
+            <a href="tel:9131725891">+91 91317 25891</a><br>
+            <a href="tel:9644218402">+91 96442 18402</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-val">
+            <a href="mailto:bhavesharoraacer@gmail.com">bhavesharoraacer@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💬</div>
+        <div>
+          <div class="contact-item-label">WhatsApp</div>
+          <div class="contact-item-val">
+            <a href="https://wa.me/919131725891" target="_blank">Chat on WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Office Address</div>
+          <div class="contact-item-val">Jiwaji Ganj, Near Kartik Bhagwan Mandir,<br>Lashkar, Gwalior, Madhya Pradesh</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <div class="contact-item-label">Working Hours</div>
+          <div class="contact-item-val">Mon – Sat: 9:00 AM – 7:00 PM</div>
+        </div>
+      </div>
+      <a href="https://maps.google.com/?q=Jiwaji+Ganj+Near+Kartik+Bhagwan+Mandir+Lashkar+Gwalior+Madhya+Pradesh" target="_blank" class="btn-outline" style="display:inline-block;margin-top:0.5rem;font-size:0.85rem;padding:0.6rem 1.2rem;">
+        📍 View on Google Maps →
+      </a>
+    </div>
+
+    <div>
+      <div class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Your Name">
+          <input type="tel" placeholder="Phone Number">
+        </div>
+        <input type="email" placeholder="Email Address">
+        <select>
+          <option value="" disabled selected>Select Service Required</option>
+          <option>CCTV Installation</option>
+          <option>Camera Purchase</option>
+          <option>Fire Extinguisher</option>
+          <option>Solar Panel</option>
+          <option>AMC / Maintenance</option>
+          <option>Other</option>
+        </select>
+        <textarea placeholder="Describe your requirement..."></textarea>
+        <button class="form-submit" onclick="alert('Thank you! We will contact you shortly. You can also reach us directly at 9131725891.')">
+          Send Enquiry →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Om Sai Enterprises. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p style="color:var(--muted); font-size:0.85rem;">📍 Jiwaji Ganj, Near Kartik Bhagwan Mandir, Lashkar, Gwalior, M.P.</p>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a class="wa-float" href="https://wa.me/919131725891" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<!-- Scroll reveal -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.service-card, .feature-tile, .about-item, .contact-item, .prod-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+
+  document.querySelectorAll('.prod-card').forEach(el => {
+    el.addEventListener('mouseenter', () => { el.style.transform = 'translateY(-6px)'; el.style.boxShadow = '0 20px 50px rgba(0,0,0,0.4)'; el.style.borderColor = 'rgba(232,160,32,0.3)'; });
+    el.addEventListener('mouseleave', () => { el.style.transform = 'translateY(0)'; el.style.boxShadow = 'none'; el.style.borderColor = 'rgba(255,255,255,0.07)'; });
+  });
+</script>
+</body>
+</html>
